@@ -1,0 +1,13 @@
+.main_container {
+  width: 100%;
+  max-width: 1024px;
+  padding: 100px 20px;
+  margin: 0 auto;
+  min-height: 80vh;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}

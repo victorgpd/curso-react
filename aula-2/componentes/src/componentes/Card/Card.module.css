@@ -1,0 +1,11 @@
+.card {
+  flex: 1 1 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+
+  padding: 30px 10px;
+  background-color: lightgray;
+}
