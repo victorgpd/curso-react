@@ -1,0 +1,37 @@
+.menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    
+    height: 90vh;
+    padding: 30px 20px;
+    max-width: 800px;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #2b3945;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+.menu ul {
+  height: 80vh;
+  background-color: none;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+  
+  list-style: none;
+}
+
+.menu ul li {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px 30px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}

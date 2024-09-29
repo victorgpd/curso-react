@@ -1,0 +1,44 @@
+.topo {
+    width: 100%;
+    padding: 10px 0;
+    
+    background-color: brown;
+    
+    gap: 20px 60px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.topo img {
+    width: 60px;
+    height: 60px;
+}
+
+.topo nav {
+    padding: 10px;
+
+    gap: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.topo nav a {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.topo nav a:hover {
+    scale: 1.1;
+    color: black;
+    background-color: antiquewhite;
+    
+    transition: all .6s;
+}
