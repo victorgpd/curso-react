@@ -23,7 +23,7 @@ export default function Home() {
         <div className={styles.container}>
           {produtos.map( (produto) => (
             <Card
-              id={produto.id}
+              key={produto.id}
               image={Hamburguer}
               produto={produto.nome}
               descricao={produto.descricao}

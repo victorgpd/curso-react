@@ -3,7 +3,7 @@ import estilo from "./Cards.module.css"
 
 export default function Card(props) {
     return (
-        <div className={estilo.card} key={props.id}>
+        <div className={estilo.card}>
             <div className={estilo.image}>
                 <Image src={props.image} alt={props.produto}/>
             </div>
