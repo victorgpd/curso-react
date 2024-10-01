@@ -1,11 +1,22 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Card from "@/componentes/Card";
+import api from "@/services/api";
 import Hamburguer from "../../public/hamburguer.png"
 
 export default function Home() {
+  const [produtos, setProdutos] = useState([])
   const [product, setProduct] = useState("Mega Stacker Atômico 2.0")
+
+  async function getProdutos() {
+    const produtosFromApi = await api.get("/produtos")
+    setProdutos(produtosFromApi.data)
+  }
+  
+  useEffect(() => {
+    getProdutos()
+  }, [])
 
   function alterarProduto() {
     if (product === "Mega Stacker Atômico 2.0") {
@@ -19,79 +30,16 @@ export default function Home() {
     <main className={styles.main}>
       <section className={styles.cardapio}>
         <div className={styles.container}>
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-            alterarProduct={alterarProduto}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
-          <Card
-            image={Hamburguer}
-            produto={product}
-            descricao={"O Mega Stacker 2.0 que você já conhece, agora com cheddar fatiado e bacon nas duas camadas, e molho Stacker."}
-            preco={"49,99"}
-          />
+          {produtos.map( (produto) => (
+            <Card
+              id={produto.id}
+              image={Hamburguer}
+              produto={produto.nome}
+              descricao={produto.descricao}
+              preco={produto.valor}
+              alterarProduct={alterarProduto}
+            />
+          ))}
         </div>
       </section>
     </main>
