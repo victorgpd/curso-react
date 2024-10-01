@@ -11,7 +11,7 @@ export default function Card(props) {
                 <h3>{props.produto}</h3>
                 <p>{props.descricao}</p>
                 <h3>R$ {props.preco}</h3>
-                <button onClick={props.alterarProduct}>Adicionar</button>
+                <button>Adicionar</button>
             </div>
         </div>
     )
